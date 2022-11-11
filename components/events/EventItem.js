@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Button from '../ui/button';
+import { MdOutlineDateRange } from 'react-icons/md';
+import { BiMap } from 'react-icons/bi';
 
-function EventItem(props) {
-  const { title, image, date, location, id } = props;
-
+function EventItem({ id, title, image, date, location }) {
   const dateReadable = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
@@ -13,28 +13,31 @@ function EventItem(props) {
   const exploreMoreLink = `/events/${id}`;
 
   return (
-    <li className='p-4 shadow  rounded mb-4 bg-white'>
-      <h2 className='py-4 text-2xl'>{title}</h2>
-      <Image
-        src={'' + image}
-        alt='title'
-        width={360}
-        height={160}
-        loading='lazy'
-      />
+    <li className='p-4 shadow  rounded mb-4 bg-white md:flex md:w-[640px] m-auto'>
+      <div className='w-full md:w-[240px] mr-8 '>
+        <Image
+          src={image}
+          alt='title'
+          width={400}
+          height={400}
+          className='w-auto rounded'
+        />
+      </div>
 
-      <div className='py-2'>
-        <p className='font-bold text-gray-600 mb-2'>{dateReadable}</p>
-        <address className='py-2 w-[180px]'>{location}</address>
-
-        <div className='flex justify-end items-end'>
-          <Link
-            className='p-2 underline text-blue-700 cursor-pointer'
-            href={exploreMoreLink}
-          >
-            Explore more
-          </Link>
+      <div className=' md:flex md:flex-col'>
+        <h2 className='pt-4 text-2xl '>{title}</h2>
+        <div className='py-4 flex gap-2 items-center'>
+          <MdOutlineDateRange size={24} />
+          <p className='font-bold text-gray-600 '>{dateReadable}</p>
         </div>
+        <div className='pb-4 flex gap-2 items-center'>
+          <BiMap size={24} />
+          <address className=' w-[180px]'>{location}</address>
+        </div>
+
+        <Button link={exploreMoreLink}>
+          Explore Event <span className='ml-2'>&#10132;</span>
+        </Button>
       </div>
     </li>
   );
