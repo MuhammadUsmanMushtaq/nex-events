@@ -2,9 +2,14 @@ import Image from 'next/image';
 import { BiMap } from 'react-icons/bi';
 import { MdOutlineDateRange } from 'react-icons/md';
 
-function EventLogistics(props) {
-  const { title, date, address, image, imageAlt, description } = props;
-
+function EventLogistics({
+  title,
+  date,
+  address,
+  image,
+  imageAlt,
+  description,
+}) {
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',

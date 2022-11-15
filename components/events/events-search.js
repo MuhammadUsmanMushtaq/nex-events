@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Button from '../ui/button';
 
-function EventsSearch(props) {
+function EventsSearch({ onSearch }) {
   const yearInputRef = useRef();
   const monthInputRef = useRef();
 
@@ -11,7 +11,7 @@ function EventsSearch(props) {
     const selectedYear = yearInputRef.current.value;
     const selectedMonth = monthInputRef.current.value;
 
-    props.onSearch(selectedYear, selectedMonth);
+    onSearch(selectedYear, selectedMonth);
   }
   return (
     <form className='p-2' onSubmit={submitHandler}>
