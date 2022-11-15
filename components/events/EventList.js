@@ -2,7 +2,7 @@ import EventItem from './EventItem';
 
 function EventList({ items }) {
   return (
-    <ul className='p-2'>
+    <ul className='p-2 mt-8'>
       {items.map((event) => (
         <EventItem
           key={event.id}

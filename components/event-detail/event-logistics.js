@@ -22,7 +22,7 @@ function EventLogistics(props) {
           className='md:rounded'
         />
       </div>
-      <ul className='md:text-blue-200 tracking-wide'>
+      <ul className='md:text-white tracking-wide'>
         <div className='flex gap-2 items-center pt-4 md:pt-0'>
           <MdOutlineDateRange size={24} />
           <p>{humanReadableDate}</p>
